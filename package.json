@@ -1,0 +1,29 @@
+{
+  "name": "eves-party-planner",
+  "version": "1.0.0",
+  "description": "A party planner website with node, ejs, auth, mongodb and heroku",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anithaprince/Eves-Party-Planner.git"
+  },
+  "author": "Anitha Varghese",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anithaprince/Eves-Party-Planner/issues"
+  },
+  "homepage": "https://github.com/anithaprince/Eves-Party-Planner#readme",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.3.3"
+  }
+}
