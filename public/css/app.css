@@ -1,0 +1,35 @@
+.nav-wrapper {
+    background-color: #000 !important;
+    font-size: 14px;
+    font-weight: bold;
+  }
+body > nav > div > a.brand-logo > img{
+  padding: 3%;
+}
+
+nav ul a, nav .brand-logo {
+    color: #FFF;
+}
+
+body > nav > div > ul> li:hover{
+  background-color: #e60077;
+}
+
+body > nav > div > ul.right.hide-on-med-and-down > li:nth-child(5):hover{
+  background-color: inherit;
+}
+body > nav > div > p {
+    line-height: 2rem;
+
+    -webkit-text-stroke: 1px #e60077;
+    text-align: center;
+    width: 25%;
+    margin: auto;
+    padding: 1%;
+}
+
+@media only screen and (max-width : 992px) {
+  body > nav > div > p {
+      visibility: hidden;
+  }
+}

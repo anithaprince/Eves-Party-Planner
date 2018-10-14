@@ -65,15 +65,9 @@ app.use('/', partyController)
 //            ROUTES
 // =======================================
 
-app.get('/', (req, res)=>{
-  res.redirect('/home');
-});
 // Routes
-app.get('/home', (req, res) => {
-  res.send('Hello World')
-  // res.render('index.ejs',{
-  //   currentUser: req.session.currentUser
-  // })
+app.get('/', (req, res) => {
+  res.render('index.ejs')
 })
 
 // =======================================
