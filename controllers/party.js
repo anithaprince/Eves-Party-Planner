@@ -35,8 +35,8 @@ router.get ('/packages/seed' , (req, res) => {
 });
 
 /************* Create Route***********************/
-router.get('/packages/new', (req, res)=>{
-    res.render('addnew.ejs');
+router.get('/new', (req, res)=>{
+    res.render('new.ejs');
 })
 
 router.post('/packages', (req, res)=>{

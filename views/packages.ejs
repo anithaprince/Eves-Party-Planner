@@ -7,6 +7,7 @@
 
   <body>
       <% include ./partials/nav.ejs %>
+      <h2 class="pinktext">Eve's Kids Party Packages Options</h2>
     <div class="row">
       <% for(let i = 0; i < party.length; i++){ %>
       <div class="col s12 m7">
@@ -33,7 +34,9 @@
       </div>
       <%}%>
 </div>
-<a class="btn waves-effect orange lighten-3 black-text darken-text-2"  href="/packages/new" >Add a new product</a>
+<div style="margin:2%;">
+  <a class="btn waves-effect orange lighten-3 black-text darken-text-2"  href="/new" >Add a new packages</a>
+</div>
       <% include ./partials/script.ejs %>
   </body>
 </html>

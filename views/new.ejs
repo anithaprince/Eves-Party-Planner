@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Eve's Party Planner | Add Packages</title>
+      <% include ./partials/head.ejs %>
+  </head>
+
+  <body>
+    <% include ./partials/nav.ejs %>
+
+    <div class="container" style="margin-top:2%;padding: 2%; border: 2px solid #ffcdd2; border-radius: 4px;">
+      <h2 class="pinktext">Add New Party Package</h2>
+      <div class="row">
+        <form class="col s12" action="/packages" method="POST">
+
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="Type title here" name="title" type="text" class="validate" required>
+              <label for="text">Package Title</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="$" name="price" type="text" class="validate" required>
+              <label for="text">Package Price</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea class="materialize-textarea" name="description"></textarea>
+              <label for="textarea">Package Description</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s8" id="input_fields_wrap">
+              <input type="text" class="validate" name="highlights">
+              <label for="last_name">Add Package Highlights</label>
+            </div>
+
+            <div class="input-field col s2">
+              <button class="btn-floating btn-large waves-effect waves-light red" id="add_field_button"><i class="material-icons">add</i></button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea class="materialize-textarea" name="notes"></textarea>
+              <label for="textarea">Disclaimers:</label>
+            </div>
+          </div>
+
+          <button class="btn waves-effect orange lighten-3 black-text darken-text-2" type="submit" name="action">Create Package
+            <i class="material-icons right">send</i>
+          </button>
+
+
+
+
+
+        </div>
+
+
+
+
+
+        </form>
+    </div>
+
+  </div>
+      <% include ./partials/script.ejs %>
+  </body>
+</html>
