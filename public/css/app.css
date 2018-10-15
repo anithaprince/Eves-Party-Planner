@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
 .nav-wrapper {
     background-color: #000 !important;
     font-size: 14px;
@@ -32,4 +34,27 @@ body > nav > div > p {
   body > nav > div > p {
       visibility: hidden;
   }
+}
+
+.orange.lighten-3 {
+    font-family: 'PT Sans', sans-serif !important;
+    background-color: #e4501d !important;
+    color: white !important;
+    border-radius: 5%;
+}
+
+.center-align {
+
+    padding-bottom: 2%;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    background-color: rgba(195, 10, 100, .5);
+    /* background-color: rgba(1, 1, 1, 1); */
+}
+.white-text{
+  font-family: 'PT Sans', sans-serif;
+  font-weight: bold;
+}
+.slider{
+  margin: 1% 0 1% 0;
 }
