@@ -12362,3 +12362,6 @@ $(document).ready(function() {
 		e.preventDefault(); $(this).parent('div').remove(); x--;
 	})
 });
+
+//https://jsfiddle.net/va9afvoo/
+$('select').material_select();
