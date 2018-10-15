@@ -12,6 +12,7 @@ require('dotenv').config()
 //              MIDDLEWARE
 // =======================================
 app.use(express.urlencoded({extended:false}));
+app.use(express.json());
 
 
 app.use(session({

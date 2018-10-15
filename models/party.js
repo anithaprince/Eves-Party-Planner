@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const partySchema = Schema({
   title: { type: String, required: true },
   description: {type: String},
-  highlights: {type: String},
+  highlights: [{type: String}],
   img: {type: String},
   price:{
           type: Number,
