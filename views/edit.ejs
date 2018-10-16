@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Eve's Party Planner | Edit <%=party.title; %></title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="/css/app.css">
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">  <img src="/images/logo.png"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/packages">Packages</a></li>
+          <li><a href="/">Gallery</a></li>
+          <li><a href="/">Contact Us</a></li>
+          <li>
+            <a class="btn waves-effect waves-light" href="#">Login</a>
+          </li>
+
+        </ul>
+        <p>
+          BOO! HALLOWEEN IS JUST AROUND THE CORNER ...
+        </p>
+
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="#">Home</a></li>
+        <li><a href="/packages">Packages</a></li>
+        <li><a href="/">Gallery</a></li>
+        <li><a href="/">Contact Us</a></li>
+        <li>
+          <a class="btn waves-effect waves-light" href="#">Login</a>
+        </li>
+      </ul>
+      </div>
+    </nav>
+
+    <nav>
+       <div class="nav-wrapper">
+         <div class="col s12">
+           <a href="/" class="breadcrumb">Home</a>
+           <a href="/packages" class="breadcrumb">Packages</a>
+           <a href="#" class="breadcrumb">Edit </a>
+         </div>
+       </div>
+    </nav>
+    <div class="container" style="margin-top:2%;padding: 2%; border: 2px solid #ffcdd2; border-radius: 4px;">
+      <h2 class="pinktext">Edit Party Package</h2>
+      <div class="row">
+        <form class="col s12" action="/<%=party.id; %>?_method=PUT" method="POST">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">title</i>
+              <input value="<%=party.title%>" name="title" type="text" class="validate" required>
+              <label for="text">Package Title</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix">attach_money</i>
+              <input value="<%=party.price%>" name="price" type="text" class="validate" required>
+              <label for="text">Package Price</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">image</i>
+              <input value="<%=party.img%>" name="img" type="text" class="validate" >
+              <label for="text">Image URL</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">mode_edit</i>
+              <input value="<%=party.description%>" name="description" type="text" class="validate">
+              <label for="text">Description</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s8" id="input_fields_wrap">
+              <i class="material-icons prefix">mode_edit</i>
+              <% for(let j = 0; j < party.highlights.length; j++){ %>
+                <input type="text" value="<%=party.highlights[j]%>"class="validate" name="highlights">
+              <%}%>
+              <label for="last_name">Package Highlights</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">note_add</i>
+              <label for="text">Disclaimers</label>
+              <input value="<%=party.note%>" name="note" type="text" class="validate" style="width: 80%; height:100px; overflow-y: scroll;">
+
+            </div>
+          </div>
+          <button class="btn waves-effect orange lighten-3 black-text darken-text-2" type="submit" name="action">Edit Package
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
+    </div>
+  <% include ./partials/script.ejs %>
+  </body>
+</html>

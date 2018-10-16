@@ -23,7 +23,9 @@ router.get('/packages', (req, res) => {
     })
 })
 
-
+router.get('/gallery', (req, res)=>{
+    res.render('gallery.ejs');
+})
 /************* Seed Route ********************/
 
 router.get ('/packages/seed' , (req, res) => {
@@ -53,6 +55,23 @@ router.get('/:id',(req,res)=>{
     });
   })
 })
+
+/************* Edit Route ********************/
+
+router.put('/:id', (req,res)=>{
+  Party.findByIdAndUpdate(req.params.id, req.body,{new:true},(err, updateParty)=>{
+    res.redirect('/packages')
+  })
+
+})
+
+router.get('/:id/edit', (req,res)=>{
+  Party.findById(req.params.id, (err, foundParty) => {
+      res.render('edit.ejs', {
+          party: foundParty
+      });
+  })
+});
 
 
 /************* Delete Route ********************/

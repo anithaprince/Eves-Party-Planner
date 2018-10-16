@@ -12377,4 +12377,3 @@ $('select').material_select();
   $(document).ready(function(){
     $('.materialboxed').materialbox();
   });
-      
