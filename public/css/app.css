@@ -193,3 +193,11 @@ ul.social-icons {
 .fa-google-plus:hover {
     background-color: #e25714;
 }
+
+
+/*portfolio*/
+.portfolio {
+  padding: 15px;
+  display: flex;
+
+}

@@ -12377,3 +12377,9 @@ $('select').material_select();
   $(document).ready(function(){
     $('.materialboxed').materialbox();
   });
+
+  $('.slider').slider();
+  $(".button-collapse").sideNav();
+  $('.parallax').parallax();
+  $('.scrollspy').scrollSpy();
+   
