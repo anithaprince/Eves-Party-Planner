@@ -91,3 +91,7 @@ body > nav > div > p {
 .remove_field >.material-icons{
   color: #F44336 !important;
 }
+
+.waves-effect > input[type="submit"]{
+  color: white;
+}

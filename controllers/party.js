@@ -45,6 +45,13 @@ router.post('/packages', (req, res)=>{
     })
 });
 
+/************* Delete Route ********************/
+router.delete('/packages/:id', (req,res) =>{
+  Party.findByIdAndRemove(req.params.id, (err, data)=>{
+       res.redirect('/packages');//redirect back to packages page
+   });
+})
+
 // =======================================
 //             MODULE EXPORT
 // =======================================

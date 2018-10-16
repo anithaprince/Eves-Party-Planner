@@ -28,7 +28,10 @@
           </div>
           <div class="card-action">
             <a href="#">BOOK ONLINE</a>
-            <a href="#">LEARN MORE</a>
+            <a href="/packages/<%=party[i].id; %>">LEARN MORE</a>
+            <form action="/packages/<%=party[i].id%>?_method=DELETE" method="POST" class="btn waves-effect orange lighten-3 white-text">
+              <input type="submit" value="DELETE" />
+            </form>
           </div>
         </div>
       </div>
