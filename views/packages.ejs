@@ -3,11 +3,19 @@
   <head>
     <title>Eve's Party Planner | View Packages</title>
       <% include ./partials/head.ejs %>
-  </head>
+    </head>
 
   <body>
-      <% include ./partials/nav.ejs %>
-      <h2 class="pinktext">Eve's Kids Party Packages Options</h2>
+    <% include ./partials/nav.ejs %>
+    <nav>
+     <div class="nav-wrapper">
+       <div class="col s12">
+         <a href="/" class="breadcrumb">Home</a>
+         <a href="/packages" class="breadcrumb">Packages</a>
+       </div>
+     </div>
+   </nav>
+    <h2 class="pinktext">Eve's Kids Party Packages Options</h2>
     <div class="row">
       <% for(let i = 0; i < party.length; i++){ %>
       <div class="col s12 m7">
@@ -18,7 +26,7 @@
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4"><%=party[i].title; %><i class="material-icons right">more_vert</i></span>
             <p><%=party[i].description; %></p>
-            <p><a href="#" style="color:#d83103;">Our Price: <%=party[i].price; %></a></p>
+            <p><a href="#" style="color:#d83103;">Our Price: $<%=party[i].price; %></a></p>
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4"><%=party[i].title; %><i class="material-icons right">close</i></span>
@@ -28,7 +36,8 @@
           </div>
           <div class="card-action">
             <a href="#">BOOK ONLINE</a>
-            <a href="/packages/<%=party[i].id; %>">LEARN MORE</a>
+            <a href="/<%=party[i].id; %>">LEARN MORE</a>
+            <a href="/<%=party[i].id; %>">EDIT</a>
             <form action="/packages/<%=party[i].id%>?_method=DELETE" method="POST" class="btn waves-effect orange lighten-3 white-text">
               <input type="submit" value="DELETE" />
             </form>
@@ -36,10 +45,11 @@
         </div>
       </div>
       <%}%>
-</div>
-<div style="margin:2%;">
-  <a class="btn waves-effect orange lighten-3 black-text darken-text-2"  href="/new" >Add a new packages</a>
-</div>
-      <% include ./partials/script.ejs %>
+    </div>
+    <div style="margin:2%;">
+      <a class="btn waves-effect orange lighten-3 black-text darken-text-2"  href="/new" >Add a new packages<i class="material-icons right">send</i></a>
+    </div>
+    <% include ./partials/footer.ejs %>
+    <% include ./partials/script.ejs %>
   </body>
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include ./partials/head.ejs %>
+    <title>Eve's Party Planner | <%=party.title; %></title>
+  </head>
+  <body>
+    <% include ./partials/nav.ejs %>
+    <nav>
+     <div class="nav-wrapper">
+       <div class="col s12">
+         <a href="/" class="breadcrumb">Home</a>
+         <a href="/packages" class="breadcrumb">Packages</a>
+         <a href="/<%=party.id; %>" class="breadcrumb"><%=party.title; %></a>
+       </div>
+     </div>
+   </nav>
+    <div class="row" style="margin-top:1%;">
+      <div class="col s12 m4 l3" style="background-color:black; padding: 10% 0;">
+        <div class="container">
+          <h2 style="color:white;"> <%=party.title; %></h2>
+          <p style="color:white;">
+            <%=party.description; %>
+          </p>
+          <h5 style="color:white;">$ <%=party.price; %></h5>
+          <br/></br/>
+          <button class="btn waves-effect orange waves-light" type="submit" name="action">Buy
+            <i class="material-icons right">shopping_cart</i>
+          </button>
+          <button class="btn waves-effect orange waves-light" type="submit" name="action">Edit
+            <i class="material-icons right">edit</i>
+          </button>
+
+        </div>
+      </div>
+
+      <div class="col s12 m8 l9">
+        <div class="container">
+          <img class="materialboxed" width="650" src="<%=party.img; %>" style="border:2px solid #ffcdd2; border-radius: 4px;padding:2%;" />
+          <ol>
+            <% for(let i = 0; i < party.highlights.length; i++){ %>
+              <li><%=party.highlights[i]; %></li>
+            <%}%>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <% include ./partials/footer.ejs %>
+    <% include ./partials/script.ejs %>
+  </body>
+</html>

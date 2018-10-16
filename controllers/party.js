@@ -44,6 +44,16 @@ router.post('/packages', (req, res)=>{
         res.redirect('/packages');
     })
 });
+/************* Show Route ********************/
+
+router.get('/:id',(req,res)=>{
+  Party.findById(req.params.id, (err, foundParty)=>{
+    res.render('show.ejs',{
+      party: foundParty
+    });
+  })
+})
+
 
 /************* Delete Route ********************/
 router.delete('/packages/:id', (req,res) =>{
