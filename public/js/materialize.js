@@ -12366,20 +12366,7 @@ $(document).ready(function() {
 //https://jsfiddle.net/va9afvoo/
 $('select').material_select();
 
+$(document).ready(function(){
+ 		$('.materialbox').materialbox();
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.materialboxed');
-    var instances = M.Materialbox.init(elems, options);
-  });
-
-  // Or with jQuery
-
-  $(document).ready(function(){
-    $('.materialboxed').materialbox();
-  });
-
-  $('.slider').slider();
-  $(".button-collapse").sideNav();
-  $('.parallax').parallax();
-  $('.scrollspy').scrollSpy();
-   
+ 	});
