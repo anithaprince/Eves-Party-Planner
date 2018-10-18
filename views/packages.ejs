@@ -48,9 +48,11 @@
       </div>
       <%}%>
     </div>
-    <div style="margin:2%;">
-      <a class="btn waves-effect orange lighten-3 black-text darken-text-2"  href="/new" >Add a new packages<i class="material-icons right">send</i></a>
-    </div>
+    <% if(currentUser){%>
+      <div style="margin:2%;">
+        <a class="btn waves-effect orange lighten-3 black-text darken-text-2"  href="/new" >Add a new packages<i class="material-icons right">send</i></a>
+      </div>
+    <%}%>
     <% include ./partials/footer.ejs %>
     <% include ./partials/script.ejs %>
   </body>
