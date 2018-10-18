@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+      <% include ./partials/head.ejs %>
+    <title>Eve's Party Planner | Login</title>
+  </head>
+  <body>
+    <% include ./partials/nav.ejs %>
+    <div class="container white z-depth-2" style="margin-top: 80px;width: 600px;height: 700px;">
+      <% if(currentUser){%>
+        <ul class="tabs orange darken-4" style="text-align:center;">
+          <li class="tab col s3"><a class="white-text" href="#">Welcome <%=currentUser.username%>!</a></li>
+        </ul>
+        <form class="col s12" >
+          <div class="form-container">
+            <h3 class="pinktext">My Account</h3>
+            <div class="row">
+              <div class="input-field col s6">
+                <input disabled id="first_name" type="text" class="validate" name="firstname" value="<%=currentUser.firstname%>">
+                <label for="first_name">First Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input disabled id="last_name" type="text" class="validate" name="lastname" value="<%=currentUser.lastname%>">
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input disabled id="email" type="email" class="validate" name="email" value="<%=currentUser.email%>">
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                  <input disabled id="username" type="text" class="validate" name="username" value="<%=currentUser.username%>">
+                <label for="last_name">User Name</label>
+              </div>
+            </div>
+          </div>
+        </form>
+        <center>
+          <a class="btn waves-effect orange lighten-3 black-text darken-text-2"  href="/packages" style="margin-bottom: 2%;" >Add/Edit Packages<i class="material-icons right">send</i></a>
+          <form  action="/login?_method=DELETE" method="POST">
+             <input type="submit" value="Logout" class="btn waves-effect orange lighten-3 black-text darken-text-2"/>
+          </form>
+        </center>
+      <% } else {%>
+      	<ul class="tabs orange darken-4" style="text-align:center;">
+      		<li class="tab col s3"><a class="white-text active" href="#login">login</a></li>
+      		<li class="tab col s3"><a class="white-text" href="#register">register</a></li>
+      	</ul>
+      	<div id="login" class="col s12">
+      		<form class="col s12" action="/login" method="POST">
+      			<div class="form-container">
+      				<h3 class="pinktext">Please login into your account</h3>
+      				<div class="row">
+      					<div class="input-field col s12">
+      						<input id="username" type="text" class="validate" name="username" required>
+      						<label for="username">User Name</label>
+      					</div>
+      				</div>
+      				<div class="row">
+      					<div class="input-field col s12">
+      						<input id="password" type="password" class="validate" name="password" required>
+      						<label for="password">Password</label>
+      					</div>
+      				</div>
+      				<br>
+      				<center>
+      					<button class="btn waves-effect orange lighten-3 black-text darken-text-2" type="submit" name="action">Login</button>
+
+      				</center>
+      			</div>
+      		</form>
+      	</div>
+      	<div id="register" class="col s12">
+      		<form class="col s12" action="/" method="POST">
+      			<div class="form-container">
+      				<h3 class="pinktext">Create Account</h3>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="first_name" type="text" class="validate" name="firstname" required>
+                  <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="last_name" type="text" class="validate" name="lastname" required>
+                  <label for="last_name">Last Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" type="email" class="validate" name="email" required>
+                  <label for="email">Email</label>
+                </div>
+              </div>
+      				<div class="row">
+      					<div class="input-field col s12">
+        						<input id="username" type="text" class="validate" name="username" required>
+      						<label for="last_name">User Name</label>
+      					</div>
+      				</div>
+
+      				<div class="row">
+      					<div class="input-field col s12">
+      						<input id="password" type="password" class="validate" name="password" required>
+      						<label for="password">Password</label>
+      					</div>
+      				</div>
+
+      				<center>
+      					<button class="btn waves-effect orange lighten-3 black-text darken-text-2" type="submit" name="action">Create Account</button>
+      				</center>
+      			</div>
+      		</form>
+      	</div>
+      <% }%>
+    </div>
+
+  </body>
+</html>

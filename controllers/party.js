@@ -9,6 +9,7 @@ const bcrypt = require('bcrypt')
 // =======================================
 const Party = require('../models/party.js');
 const partySeeds = require ('../models/seed.js');
+const User = require('../models/users.js');
 
 // =======================================
 //              ROUTES
@@ -18,13 +19,22 @@ const partySeeds = require ('../models/seed.js');
 router.get('/packages', (req, res) => {
   Party.find({}, (error, allParty)=>{
       res.render('packages.ejs',{
-        party:allParty
+        party:allParty,
+        currentUser: req.session.currentUser
       })
     })
 })
 
 router.get('/gallery', (req, res)=>{
-    res.render('gallery.ejs');
+    res.render('gallery.ejs',{
+      currentUser: req.session.currentUser
+    });
+})
+
+router.get('/contact', (req, res)=>{
+    res.render('contact.ejs',{
+      currentUser: req.session.currentUser
+    });
 })
 /************* Seed Route ********************/
 
@@ -38,7 +48,9 @@ router.get ('/packages/seed' , (req, res) => {
 
 /************* Create Route***********************/
 router.get('/new', (req, res)=>{
-    res.render('new.ejs');
+    res.render('new.ejs',{
+      currentUser: req.session.currentUser
+    });
 })
 
 router.post('/packages', (req, res)=>{
@@ -46,16 +58,40 @@ router.post('/packages', (req, res)=>{
         res.redirect('/packages');
     })
 });
-/************* Show Route ********************/
-
-router.get('/:id',(req,res)=>{
-  Party.findById(req.params.id, (err, foundParty)=>{
-    res.render('show.ejs',{
-      party: foundParty
+/************* Login Route***********************/
+router.post('/login', (req, res)=>{
+    User.findOne({ username: req.body.username }, (err, foundUser) => {
+        if(bcrypt.compareSync(req.body.password, foundUser.password)){
+          req.session.currentUser = foundUser
+            res.redirect('/login')
+        } else {
+          res.send('<a href="/">wrong password</a>')
+        }
     });
+});
+
+router.post('/', (req, res) => {
+  req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+  User.create(req.body, (err, createdUser) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(createdUser);
+    res.redirect('/login')
   })
 })
 
+router.get('/login', (req, res) => {
+  res.render('login.ejs',{
+      currentUser: req.session.currentUser
+  })
+})
+/************* Logout Route***********************/
+  router.delete('/login', (req, res)=>{
+      req.session.destroy(() => {
+          res.redirect('/login')
+      })
+  })
 /************* Edit Route ********************/
 
 router.put('/:id', (req,res)=>{
@@ -66,13 +102,32 @@ router.put('/:id', (req,res)=>{
 })
 
 router.get('/:id/edit', (req,res)=>{
-  Party.findById(req.params.id, (err, foundParty) => {
+  Party.findById(req.params.id, (err, editParty) => {
       res.render('edit.ejs', {
-          party: foundParty
+          party: editParty,
+          currentUser: req.session.currentUser
       });
   })
 });
 
+router.get('/:id/buy', (req,res)=>{
+  Party.findById(req.params.id, (err, buyParty) => {
+      res.render('buy.ejs', {
+          party: buyParty,
+          currentUser: req.session.currentUser
+      });
+  })
+});
+/************* Show Route ********************/
+
+router.get('/:id',(req,res)=>{
+  Party.findById(req.params.id, (err, foundParty)=>{
+    res.render('show.ejs',{
+      party: foundParty,
+      currentUser: req.session.currentUser
+    });
+  })
+})
 
 /************* Delete Route ********************/
 router.delete('/packages/:id', (req,res) =>{

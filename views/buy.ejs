@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Eve's Party Planner | Edit <%=party.title; %></title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="/css/app.css">
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">  <img src="/images/logo.png"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/packages">Packages</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+          <li>
+            <% if(currentUser){%>
+              <a class="btn waves-effect waves-light" href="/login">Logout</a>
+            <% } else {%>
+              <a class="btn waves-effect waves-light" href="/login">Login</a>
+            <% }%>
+          </li>
+
+        </ul>
+        <p>
+          BOO! HALLOWEEN IS JUST AROUND THE CORNER ...
+        </p>
+
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="/">Home</a></li>
+        <li><a href="/packages">Packages</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li>
+          <a class="btn waves-effect waves-light" href="#">Login</a>
+        </li>
+      </ul>
+      </div>
+    </nav>
+
+    <nav>
+       <div class="nav-wrapper">
+         <div class="col s12">
+           <a href="/" class="breadcrumb">Home</a>
+           <a href="/packages" class="breadcrumb">Packages</a>
+           <a href="#" class="breadcrumb"><%=party.title; %> - Book Online </a>
+         </div>
+       </div>
+    </nav>
+
+    <div class="container white z-depth-2" >
+      <div class="row">
+          <div class="col m10 offset-m1 s12">
+            <h2 style="text-align:center;">Contact Form</h2>
+            <div class="row">
+              <form class="col m8 offset-m2 s12">
+                <div class="row">
+        					<div class="input-field col s6">
+        						<input disabled value="<%=party.title%>" name="title" type="text" class="validate">
+        						<label for="text">Package Title</label>
+        					</div>
+        					<div class="input-field col s6">
+        						<input disabled value="$<%=party.price%>" name="img" type="text" class="validate">
+        						<label for="text">Package Price</label>
+        					</div>
+        				</div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="last_name" type="text" class="validate" name="name">
+                    <label for="last_name">Your Name</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="email" type="email" class="validate" name="email">
+                    <label for="email">Email Id</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea id="message" name="message" class="materialize-textarea"></textarea>
+                    <label for="message">Message</label>
+                  </div>
+                </div>
+                <div class="row" style="text-align:center;">
+                  <a class="btn waves-effect orange lighten-3 black-text darken-text-2"  href="/home" >Send Enquiry<i class="material-icons right">send</i></a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+   <% include ./partials/footer.ejs %>
+   <% include ./partials/script.ejs %>
+ </body>
+</html>

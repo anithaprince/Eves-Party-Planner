@@ -68,7 +68,9 @@ app.use('/', partyController)
 
 // Routes
 app.get('/', (req, res) => {
-  res.render('index.ejs')
+  res.render('index.ejs',{
+    currentUser: req.session.currentUser
+  })
 })
 
 // =======================================

@@ -201,3 +201,19 @@ ul.social-icons {
   display: flex;
 
 }
+/* Login
+https://codepen.io/malikbekhelouf/pen/Kzwgbb */
+
+
+.tabs .indicator
+{
+	background-color: #e0f2f1;
+	height: 60px;
+	opacity: 0.3;
+}
+
+.form-container
+{
+	padding: 40px;
+	padding-top: 10px;
+}
